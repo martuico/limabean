@@ -1,28 +1,27 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+   <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+global.jQuery = require('jquery');
+
+var $ = global.jQuery;
+window.$ = $;
 
 export default {
   name: 'app',
-  components: {
-    HelloWorld
+  mounted() {
+    $(document).foundation();
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<!--style rel="stylesheet/scss" lang="scss">
+@import "~foundation-sites/scss/foundation.scss";
+</style-->
+
+<style lang="scss">
+  @import './styles/app';
 </style>
